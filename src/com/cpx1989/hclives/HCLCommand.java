@@ -40,6 +40,7 @@ public class HCLCommand implements CommandExecutor {
     			if(sender.hasPermission("hcl.check.others")){
     				sender.sendMessage(ChatColor.RED + "/hcl check <name/uuid>" + ChatColor.GRAY + " - Check the amount of lives the player has!");
     			}
+    			sender.sendMessage(ChatColor.RED + "/hcl toggle" + ChatColor.GRAY + " - Toggle the scoreboard visibility!");
     			sender.sendMessage(ChatColor.RED + "/hcl about" + ChatColor.GRAY + " - Shows CPx1989's bragging rights!");
     		}
     		else if (args[0].equalsIgnoreCase("about"))
@@ -55,6 +56,21 @@ public class HCLCommand implements CommandExecutor {
             		Player play = (Player)sender;
     				sender.sendMessage(ChatColor.GRAY + " ------ " + ChatColor.RED + "HCLives" + ChatColor.GRAY + " ------ ");
     				sender.sendMessage(ChatColor.GRAY + "You have  " + HCLives.cfg.getInt("Players." + play.getUniqueId()) + " lives remaining");
+    			}
+    			else {
+			    	sender.sendMessage(plugin.getPrefix() + ChatColor.RED + "Command must be run as player!");
+    			}
+    		}	
+    		else if (args[0].equalsIgnoreCase("toggle"))
+    		{
+    			if(sender instanceof Player) {
+            		Player play = (Player)sender;
+			    	sender.sendMessage(plugin.getPrefix() + ChatColor.GRAY + "Scoreboard toggled!");
+			    	if(play.getScoreboard() != HCLives.instance.sb.getScoreboard()){
+			    		play.setScoreboard(HCLives.instance.sb.getScoreboard());
+			    	} else {
+			    		play.setScoreboard(HCLives.instance.getServer().getScoreboardManager().getNewScoreboard());
+			    	}
     			}
     			else {
 			    	sender.sendMessage(plugin.getPrefix() + ChatColor.RED + "Command must be run as player!");
