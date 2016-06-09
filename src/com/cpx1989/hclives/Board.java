@@ -11,12 +11,15 @@ public class Board {
 	
 	private Scoreboard scoreboard;
 	private Objective objective;
+	private Objective objective2;
 	
 	public Board(HCLives p){
 		scoreboard = p.getServer().getScoreboardManager().getNewScoreboard();
 	    objective = scoreboard.registerNewObjective("HCLives", "dummy");
+	    objective2 = scoreboard.registerNewObjective("HCLivesHealth", "health");
 	    objective.setDisplayName("§cHCLives");
 		objective.setDisplaySlot(DisplaySlot.SIDEBAR);
+		objective2.setDisplaySlot(DisplaySlot.PLAYER_LIST);
 	}
 	
 	@SuppressWarnings("deprecation")
@@ -28,6 +31,7 @@ public class Board {
 		    team.addPlayer(p);
 		    Score score = objective.getScore(p.getName());
 		    score.setScore(lives);
+		    p.setHealth(p.getHealth());
 	    }
 	}
 	
@@ -42,6 +46,7 @@ public class Board {
 	
 	public Scoreboard getScoreboard(){
 		objective.setDisplaySlot(DisplaySlot.SIDEBAR);
+		objective2.setDisplaySlot(DisplaySlot.PLAYER_LIST);
 		return scoreboard;
 	}
 
