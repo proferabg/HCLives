@@ -23,6 +23,7 @@ public class PlayerDeathEvents implements Listener {
 			HCLives.instance.getServer().broadcastMessage("");
 			HCLives.instance.getServer().broadcastMessage(HCLives.instance.getPrefix() + ChatColor.translateAlternateColorCodes('&', "&7"+p.getName()+" has died and has "+ lives + " lives remaining."));
 			HCLives.instance.getServer().broadcastMessage("");
+			HCLives.cfg.set("LastDeath." + p.getUniqueId(), System.currentTimeMillis());
 			if (lives <= 0){
 				lives = 0;
 				HCLives.cfg.set("Players." + p.getUniqueId(), lives);

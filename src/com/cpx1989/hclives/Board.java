@@ -36,6 +36,17 @@ public class Board {
 	}
 	
 	@SuppressWarnings("deprecation")
+	public void setLives(Player p, int i){
+		Team team = scoreboard.getPlayerTeam(p);
+	    if (team == null) {
+	    	addPlayer(p);
+	    } else {
+	    	Score score = objective.getScore(p.getName());
+		    score.setScore(i);
+	    }
+	}
+	
+	@SuppressWarnings("deprecation")
 	public void removePlayer(Player p){
 	    Team team = scoreboard.getPlayerTeam(p);
 	    if (team != null){

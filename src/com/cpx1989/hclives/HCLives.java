@@ -54,6 +54,8 @@ public class HCLives extends JavaPlugin {
 			sb.addPlayer(p);
 			p.setScoreboard(sb.getScoreboard());
 		}
+		
+		new HCTask();
 
 	}
 

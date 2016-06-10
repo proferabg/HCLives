@@ -27,6 +27,7 @@ public class PlayerJoinEvents implements Listener {
 			}
 		} else {
 			HCLives.cfg.set("Players." + p.getUniqueId(), HCLives.cfg.getInt("Options.Lives"));
+			HCLives.cfg.set("LastDeath." + p.getUniqueId(), 0);
 			int lives = HCLives.cfg.getInt("Players." + p.getUniqueId());
 			TitleAPI.setTitle(p, ChatColor.RED + "Welcome to Vanilla", ChatColor.GRAY + "You have " + lives + " lives remaining", 1, 3, 1);
 			HCLives.instance.sb.addPlayer(p);
