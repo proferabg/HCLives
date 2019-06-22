@@ -11,8 +11,8 @@
         </sealing>
     </manifest>
     <selectedElements exportClassFiles="true" exportJavaFiles="false" exportOutputFolder="false">
-        <file path="/HCLives/config.yml"/>
         <file path="/HCLives/plugin.yml"/>
+        <file path="/HCLives/config.yml"/>
         <javaElement handleIdentifier="=HCLives/src"/>
     </selectedElements>
 </jardesc>
