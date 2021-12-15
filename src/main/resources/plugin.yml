@@ -1,0 +1,21 @@
+name: HCLives
+version: 1.2
+authors: [proferabg]
+description: Control the amount of lives for Hardcore
+main: com.probgtech.hcl.HCLives
+commands:
+  hclives:
+    description: HCLives
+    aliases: hcl
+permissions:
+  hcl.bypass:
+    default: false
+  hcl.admin:
+    default: false
+    children:
+      - hcl.reload
+      - hcl.check.other
+  hcl.check.other:
+    default: false
+  hcl.reload:
+    default: false
